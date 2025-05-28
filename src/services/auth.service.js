@@ -119,8 +119,8 @@ class authService {
             user.otpexpiresAt = null;
             await user.save();
             return {
-            code : 200,
-            message : 'OTP hợp lệ',
+                code : 200,
+                message : 'OTP hợp lệ',
             }
         }
         return {

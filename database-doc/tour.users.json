@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "6836cae51b5891ae1c991909"
+  },
+  "username": "tungtung",
+  "password": "$2b$10$efbQO.9Fvf7e8u8FiVHU2.icEPtS5p4HYQaXNrTUDOQXrXwmGw.yW",
+  "role": "admin",
+  "photo": "tung.jpg",
+  "email": "tung@gmail.com",
+  "gender": "Nam",
+  "birthday": {
+    "$date": "2002-03-05T17:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-05-28T08:35:49.397Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-28T08:35:49.397Z"
+  },
+  "__v": 0,
+  "otp": null,
+  "otpexpiresAt": null
+},
+{
+  "_id": {
+    "$oid": "6836cafc1b5891ae1c991910"
+  },
+  "username": "tungcnn",
+  "password": "$2b$10$izyAl3m7TdO3u6DCGa.te.Z3t.14599PCVPs3hExWQ.QBtaDD6736",
+  "role": "user",
+  "photo": "tung.jpg",
+  "email": "tung9x9z123@gmail.com",
+  "gender": "Nam",
+  "birthday": {
+    "$date": "2002-03-05T17:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-05-28T08:36:12.374Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-28T09:26:59.096Z"
+  },
+  "__v": 0,
+  "otp": null,
+  "otpexpiresAt": null
+}]

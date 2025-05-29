@@ -34,6 +34,47 @@ class TourService {
             data : createTour,
         }
     }
+    async deleteTour({id}) {
+        const tour = await this.tourModel.findOne({_id : id});
+        if(!tour) {
+            return {
+                code : 404,
+                message : 'Không tìm thấy',
+            }
+        }
+        await tour.deleteOne();
+        return {
+            code : 200,
+            message : 'Xóa thành công',
+        }
+    }
+
+    async updateTour(id, updateData) {
+        try {
+            const updatedTour = await this.tourModel.findByIdAndUpdate(
+                id,
+                updateData,
+                { new: true, runValidators: true }
+            );
+            if (!updatedTour) {
+                return {
+                    code: 404,
+                    message: 'Không tìm thấy chuyến đi',
+                }
+            }
+            return {
+                code: 200,
+                message: 'Cập nhật thành công',
+                data: updatedTour,
+            }} catch (error) {
+                return {
+                    code: 500,
+                    message: 'Cập nhật thất bại',
+                    error: error.message,
+                }
+            }
+    }
+
 }
 
 export default TourService;

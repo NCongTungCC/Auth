@@ -20,22 +20,22 @@ class authController {
     changePassword = async (req, res) => {
         const id = req.user?.id;
         const {password, newPassword, confirmPassword} = req.body;
-        const result = await authServiceInstance.changePassword({id, password, newPassword, confirmPassword});
+        const result = await this.authServiceInstance.changePassword({id, password, newPassword, confirmPassword});
         new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
     }
     forgotPassword = async (req, res) => {
         const {email} = req.body;
-        const result = await authServiceInstance.forgotPassword({email});
+        const result = await this.authServiceInstance.forgotPassword({email});
         new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
     }
     verifyOTP = async (req, res) => {
         const {email, otp} = req.body;
-        const result = await authServiceInstance.verifyOTP({email, otp});
+        const result = await this.authServiceInstance.verifyOTP({email, otp});
         new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
     }
     resetPassword = async (req, res) => {
         const {email, newPassword, confirmPassword} = req.body;
-        const result = await authServiceInstance.resetPassword({email, newPassword, confirmPassword});
+        const result = await this.authServiceInstance.resetPassword({email, newPassword, confirmPassword});
         new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
     }
 }

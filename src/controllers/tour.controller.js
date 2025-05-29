@@ -20,7 +20,19 @@ class TourController {
     updateTour = async (req, res) => {
         const { id } = req.params;
         const updateData = req.body; 
-        const result = await tourServiceInstance.updateTour(id, updateData);
+        const result = await this.tourServiceInstance.updateTour(id, updateData);
+        new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
+    }
+    getTour = async (req, res) => {
+        const limit = req.query.limit || 0;
+        const page = req.query.page || 0;
+        const offset = (page - 1) * limit;
+        const result = await this.tourServiceInstance.getTour({limit, offset});
+        new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
+    }
+    getTourById = async (req, res) => {
+        const {id} = req.params;
+        const result = await this.tourServiceInstance.getTourById({id});
         new SuccessResponse({code : result.code, message : result.message, data : result.data}).send(res);
     }
 }

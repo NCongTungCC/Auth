@@ -36,6 +36,10 @@ const TourSchema = new mongoose.Schema({
         required : [true, 'Vui lòng số lượng người tối đa']
     },
     slug : String,
+    startAt : {
+        type : Date,
+        required : [true, 'Vui lòng nhập ngày khởi hành'],
+    }
 },{
     timestamps : true,
 })

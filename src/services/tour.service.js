@@ -35,7 +35,7 @@ class TourService {
         }
     }
     async deleteTour({id}) {
-        const tour = await this.tourModel.findOne({_id : id});
+        const tour = await this.tourModel.findById({id});
         if(!tour) {
             return {
                 code : 404,
@@ -55,7 +55,7 @@ class TourService {
                 id,
                 updateData,
                 { new: true, runValidators: true }
-            );
+            )
             if (!updatedTour) {
                 return {
                     code: 404,
@@ -74,7 +74,34 @@ class TourService {
                 }
             }
     }
-
+    async getTour({limit, offset}) {
+        const tour = await this.tourModel.find().sort({createdAt : -1}).limit(limit).skip(offset);
+        if(!tour) {
+            return {
+                code : 404,
+                message : 'Không tìm thấy',
+            }
+        }
+        return {
+            code : 200,
+            message : 'Thành công',
+            data : tour,
+        }
+    }
+       async getTourById({id}) {
+        const tour = await this.tourModel.findById(id);
+        if(!tour) {
+            return {
+                code : 404,
+                message : 'Không tìm thấy',
+            }
+        }
+        return {
+            code : 200,
+            message : 'Thành công',
+            data : tour,
+        }
+    }
 }
 
 export default TourService;

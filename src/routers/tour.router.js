@@ -10,4 +10,8 @@ router.delete('/tour/:id', authenticateToken, premission("admin"), tourControlle
 
 router.put('/tour/:id', tourController.updateTour);
 
+router.get('/tour', tourController.getTour);
+
+router.get('/tour/:id', tourController.getTourById);
+
 export default router;

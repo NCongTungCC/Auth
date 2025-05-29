@@ -40,6 +40,7 @@ class authService {
             }
         }
         const hashedPassword = await hashPassword(password);
+        
         const userCount = await UserModel.countDocuments();
         const role = userCount === 0 ? 'admin' : 'user';
 
